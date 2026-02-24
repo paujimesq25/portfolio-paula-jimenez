@@ -437,31 +437,37 @@
 </footer>
 
 <script>
-  /* Mobile Menu */
   (function() {
     var toggle = document.querySelector('.menu-toggle');
-    var nav    = document.querySelector('.nav-links');
+    var menu   = document.querySelector('.nav-links');
     var nb     = document.querySelector('.nav-container');
+    if (!toggle || !menu) return;
 
-    if (!toggle || !nav) return;
+    var isOpen = false;
+
+    function openMenu() {
+      isOpen = true;
+      menu.style.display = 'flex';
+      toggle.classList.add('active');
+    }
+    function closeMenu() {
+      isOpen = false;
+      menu.style.display = '';
+      toggle.classList.remove('active');
+    }
 
     toggle.addEventListener('click', function(e) {
       e.stopPropagation();
-      toggle.classList.toggle('active');
-      nav.classList.toggle('active');
+      if (isOpen) { closeMenu(); } else { openMenu(); }
     });
 
-    nav.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        toggle.classList.remove('active');
-        nav.classList.remove('active');
-      });
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() { closeMenu(); });
     });
 
     document.addEventListener('click', function(e) {
-      if (!e.target.closest('nav') && nav.classList.contains('active')) {
-        toggle.classList.remove('active');
-        nav.classList.remove('active');
+      if (isOpen && !menu.contains(e.target) && !toggle.contains(e.target)) {
+        closeMenu();
       }
     });
 
@@ -469,7 +475,6 @@
       if (nb) nb.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    /* Scroll animations */
     var obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
         if (e.isIntersecting) e.target.style.animationPlayState = 'running';
@@ -480,20 +485,17 @@
       obs.observe(el);
     });
 
-    /* Skill level bars */
     var barObs = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
         if (e.isIntersecting) {
-          var style = e.target.getAttribute('style') || '';
-          var match = style.match(/--level:\s*([^;]+)/);
-          if (match) e.target.style.width = match[1].trim();
+          var m = (e.target.getAttribute('style')||'').match(/--level:\s*([^;]+)/);
+          if (m) e.target.style.width = m[1].trim();
         }
       });
     }, { threshold: 0.3 });
     document.querySelectorAll('.level-bar').forEach(function(bar) {
-      var style = bar.getAttribute('style') || '';
-      var match = style.match(/--level:\s*([^;]+)/);
-      if (match) { bar.style.width = '0%'; barObs.observe(bar); }
+      var m = (bar.getAttribute('style')||'').match(/--level:\s*([^;]+)/);
+      if (m) { bar.style.width = '0%'; barObs.observe(bar); }
     });
   })();
 </script>

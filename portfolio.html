@@ -312,31 +312,37 @@
 </footer>
 
 <script>
-  /* Mobile Menu */
   (function() {
     var toggle = document.querySelector('.menu-toggle');
-    var nav    = document.querySelector('.nav-links');
+    var menu   = document.querySelector('.nav-links');
     var nb     = document.querySelector('.nav-container');
+    if (!toggle || !menu) return;
 
-    if (!toggle || !nav) return;
+    var isOpen = false;
+
+    function openMenu() {
+      isOpen = true;
+      menu.style.display = 'flex';
+      toggle.classList.add('active');
+    }
+    function closeMenu() {
+      isOpen = false;
+      menu.style.display = '';
+      toggle.classList.remove('active');
+    }
 
     toggle.addEventListener('click', function(e) {
       e.stopPropagation();
-      toggle.classList.toggle('active');
-      nav.classList.toggle('active');
+      if (isOpen) { closeMenu(); } else { openMenu(); }
     });
 
-    nav.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        toggle.classList.remove('active');
-        nav.classList.remove('active');
-      });
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() { closeMenu(); });
     });
 
     document.addEventListener('click', function(e) {
-      if (!e.target.closest('nav') && nav.classList.contains('active')) {
-        toggle.classList.remove('active');
-        nav.classList.remove('active');
+      if (isOpen && !menu.contains(e.target) && !toggle.contains(e.target)) {
+        closeMenu();
       }
     });
 
@@ -344,7 +350,6 @@
       if (nb) nb.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    /* Scroll animations */
     var obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
         if (e.isIntersecting) e.target.style.animationPlayState = 'running';
@@ -355,7 +360,6 @@
       obs.observe(el);
     });
 
-    /* Portfolio filter */
     var btns  = document.querySelectorAll('.filter-btn');
     var cards = document.querySelectorAll('.portfolio-card');
     btns.forEach(function(btn) {
@@ -364,11 +368,7 @@
         btn.classList.add('active');
         var f = btn.dataset.filter;
         cards.forEach(function(card) {
-          if (f === 'all' || card.dataset.category === f) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
+          card.style.display = (f === 'all' || card.dataset.category === f) ? 'flex' : 'none';
         });
       });
     });
