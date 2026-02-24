@@ -12,14 +12,9 @@
 
 <!-- Grain overlay -->
 <div class="grain-overlay"></div>
-<!-- Custom cursor -->
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
-
 <!-- Navigation -->
 <div class="nav-container" id="navBar">
     <nav>
-        <div class="logo">Paula Jiménez</div>
         <button class="menu-toggle" aria-label="Toggle menu">
             <span></span><span></span><span></span>
         </button>
@@ -71,7 +66,7 @@
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
-                        <a href="/cdn-cgi/l/email-protection#542435213e3166646464143339353d387a373b39"><span class="__cf_email__" data-cfemail="bbcbdaced1de898b8b8bfbdcd6dad2d795d8d4d6">[email&#160;protected]</span></a>
+                        <a href="mailto:pauje2000@gmail.com">pauje2000@gmail.com</a>
                     </div>
                     <div class="contact-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -340,7 +335,7 @@
             <span class="cta-eyebrow"> ¡Lista para colaborar! </span>
             <h2>¿Quieres que te ayude con tus diseños y tu página web?</h2>
             <p>Pongámonos en contacto para discutir tu proyecto</p>
-            <a href="/cdn-cgi/l/email-protection#1f6f7e6a757a2d2f2f2f5f78727e7673317c7072" class="btn btn-primary">Enviar Mensaje</a>
+            <a href="mailto:pauje2000@gmail.com" class="btn btn-primary">Enviar Mensaje</a>
         </div>
     </div>
 </section>
@@ -354,7 +349,7 @@
                 <p>Diseñadora Web &amp; Gráfica</p>
             </div>
             <div class="footer-contact">
-                <p><a href="/cdn-cgi/l/email-protection#7c0c1d0916194e4c4c4c3c1b111d1510521f1311"><span class="__cf_email__" data-cfemail="4b3b2a3e212e797b7b7b0b2c262a222765282426">[email&#160;protected]</span></a></p>
+                <p><a href="mailto:pauje2000@gmail.com">pauje2000@gmail.com</a></p>
                 <p><a href="tel:+50687122163">(+506) 8712-2163</a></p>
                 <p>Costa Rica</p>
             </div>
@@ -371,19 +366,3 @@
     </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-(function(){
-  const dot=document.querySelector('.cursor-dot'),ring=document.querySelector('.cursor-ring');
-  let mx=0,my=0,rx=0,ry=0;
-  if(dot&&ring){
-    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.transform=`translate(${mx}px,${my}px)`;});
-    (function a(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(a);})();
-    document.querySelectorAll('a,button').forEach(el=>{
-      el.addEventListener('mouseenter',()=>{ring.classList.add('hovered');dot.classList.add('hovered');});
-      el.addEventListener('mouseleave',()=>{ring.classList.remove('hovered');dot.classList.remove('hovered');});
-    });
-  }
-  const toggle=document.querySelector('.menu-toggle'),nav=document.querySelector('.nav-links'),navBar=document.getElementById('navBar');
-  toggle.addEventListener('click',()=>{toggle.classList.toggle('active');nav.classList.toggle('active');});
-  document.addEventListener('click',e=>{if(!e.target.closest('nav')){toggle.classList.remove('active');nav.classList.remove('active');}});
-  window.addEventListener('scroll',

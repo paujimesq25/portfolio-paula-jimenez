@@ -355,16 +355,4 @@
       btn.classList.add('active');
       const f = btn.dataset.filter;
       cards.forEach(card => {
-        if (f === 'all' || card.dataset.category === f) {
-          card.style.display = 'flex';
-          setTimeout(() => card.classList.add('filtered'), 10);
-        } else {
-          card.style.display = 'none';
-          card.classList.remove('filtered');
-        }
-      });
-    });
-  });
-</script>
-</body>
-</html>
+        if (f === 'all' || card.datas
