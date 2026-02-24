@@ -22,10 +22,6 @@
     </svg>
 </head>
 <body>
-    <!-- Cursor personalizado -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
-
     <!-- Grain overlay -->
     <div class="grain-overlay"></div>
 
@@ -183,7 +179,7 @@
                 <div class="cta-eyebrow">¿Listo para crear algo?</div>
                 <h2>¿Tienes un proyecto en mente?</h2>
                 <p>Trabajemos juntos para crear algo extraordinario</p>
-                <a href="mailto:pauje2000@gmail.com" class="btn btn-primary">Contáctame</a>
+                <a href="/cdn-cgi/l/email-protection#c2b2a3b7a8a7f0f2f2f282a5afa3abaeeca1adaf" class="btn btn-primary">Contáctame</a>
             </div>
         </div>
         <!-- Decorative large text -->
@@ -199,7 +195,7 @@
                     <p>Diseñadora Web & Gráfica</p>
                 </div>
                 <div class="footer-contact">
-                    <p><a href="mailto:pauje2000@gmail.com">pauje2000@gmail.com</a></p>
+                    <p><a href="/cdn-cgi/l/email-protection#1e6e7f6b747b2c2e2e2e5e79737f7772307d7173"><span class="__cf_email__" data-cfemail="f08091859a95c2c0c0c0b0979d91999cde939f9d">[email&#160;protected]</span></a></p>
                     <p><a href="tel:+50687122163">(+506) 8712-2163</a></p>
                     <p>Costa Rica</p>
                 </div>
@@ -216,57 +212,36 @@
         </div>
     </footer>
 
-    <script>
-        /* ── Custom cursor ── */
-        const dot  = document.querySelector('.cursor-dot');
-        const ring = document.querySelector('.cursor-ring');
-        let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-        let ringX = mouseX, ringY = mouseY;
-
-        document.addEventListener('mousemove', e => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            dot.style.left    = mouseX + 'px';
-            dot.style.top     = mouseY + 'px';
-            dot.style.opacity = '1';
-            ring.style.opacity = '0.6';
-        });
-
-        // Ocultar solo si el mouse sale completamente de la ventana
-        document.addEventListener('mouseleave', () => {
-            dot.style.opacity  = '0';
-            ring.style.opacity = '0';
-        });
-        document.addEventListener('mouseenter', () => {
-            dot.style.opacity  = '1';
-            ring.style.opacity = '0.6';
-        });
-
-        // Animación suave del anillo — siempre corriendo
-        (function animateRing() {
-            ringX += (mouseX - ringX) * 0.12;
-            ringY += (mouseY - ringY) * 0.12;
-            ring.style.left = ringX + 'px';
-            ring.style.top  = ringY + 'px';
-            requestAnimationFrame(animateRing);
-        })();
-
-        document.querySelectorAll('a, button, .index-card').forEach(el => {
-            el.addEventListener('mouseenter', () => { ring.classList.add('hovered'); dot.classList.add('hovered'); });
-            el.addEventListener('mouseleave', () => { ring.classList.remove('hovered'); dot.classList.remove('hovered'); });
-        });
-
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         /* ── Mobile Menu ── */
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks   = document.querySelector('.nav-links');
-        menuToggle.addEventListener('click', () => {
+        const navBar     = document.querySelector('.nav-container');
+
+        window.addEventListener('scroll', () => navBar.classList.toggle('scrolled', scrollY > 60));
+
+        function closeMenu() {
+            menuToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
+
+        menuToggle.addEventListener('click', e => {
+            e.stopPropagation();
             menuToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
+
+        // Cerrar al hacer clic en un enlace del menú
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+            });
+        });
+
+        // Cerrar al hacer clic fuera del menú
         document.addEventListener('click', e => {
-            if (!e.target.closest('nav')) {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
+            if (!e.target.closest('nav') && navLinks.classList.contains('active')) {
+                closeMenu();
             }
         });
 
@@ -286,11 +261,4 @@
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        document.querySelectorAll('.fade-in-up, .scale-in').forEach(el => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
-        });
-
-        /* ── Parallax hero circles ── */
-        document.addEventListener('mousemove', e => {
-            const xRatio = (e.clientX / wind
+        document.querySelectorAll('.fa
