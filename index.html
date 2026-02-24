@@ -183,7 +183,7 @@
                 <div class="cta-eyebrow">¿Listo para crear algo?</div>
                 <h2>¿Tienes un proyecto en mente?</h2>
                 <p>Trabajemos juntos para crear algo extraordinario</p>
-                <a href="mailto:pauje2000@gmail.com" class="btn btn-primary">Contáctame</a>
+                <a href="/cdn-cgi/l/email-protection#6a1a0b1f000f585a5a5a2a0d070b030644090507" class="btn btn-primary">Contáctame</a>
             </div>
         </div>
         <!-- Decorative large text -->
@@ -199,7 +199,7 @@
                     <p>Diseñadora Web & Gráfica</p>
                 </div>
                 <div class="footer-contact">
-                    <p><a href="mailto:pauje2000@gmail.com">pauje2000@gmail.com</a></p>
+                    <p><a href="/cdn-cgi/l/email-protection#760617031c134446464636111b171f1a5815191b"><span class="__cf_email__" data-cfemail="116170647b742321212151767c70787d3f727e7c">[email&#160;protected]</span></a></p>
                     <p><a href="tel:+50687122163">(+506) 8712-2163</a></p>
                     <p>Costa Rica</p>
                 </div>
@@ -216,7 +216,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         /* ── Custom cursor ── */
         const dot  = document.querySelector('.cursor-dot');
         const ring = document.querySelector('.cursor-ring');
@@ -224,13 +224,15 @@
 
         document.addEventListener('mousemove', e => {
             mouseX = e.clientX; mouseY = e.clientY;
-            dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+            dot.style.left = mouseX + 'px';
+            dot.style.top  = mouseY + 'px';
         });
 
         (function animateRing() {
             ringX += (mouseX - ringX) * 0.12;
             ringY += (mouseY - ringY) * 0.12;
-            ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+            ring.style.left = ringX + 'px';
+            ring.style.top  = ringY + 'px';
             requestAnimationFrame(animateRing);
         })();
 
@@ -276,7 +278,4 @@
 
         /* ── Parallax hero circles ── */
         document.addEventListener('mousemove', e => {
-            const xRatio = (e.clientX / window.innerWidth  - 0.5) * 20;
-            const yRatio = (e.clientY / window.innerHeight - 0.5) * 20;
-            document.querySelector('.circle-1').style.transform = `translate(${xRatio}px, ${yRatio}px)`;
-            document.querySelector('.circle-2').style.transform = `translate(${-
+            const xRatio = (e.clientX / wind
