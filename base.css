@@ -270,7 +270,7 @@ footer { background:var(--dark-brown); color:var(--cream); padding:var(--spacing
     gap: 1.5rem;
     z-index: 9000;
   }
-  .nav-links.active { display: flex; }
+  .nav-links.open { display: flex; }
   .nav-links li { list-style: none; }
   .nav-links a {
     font-size: 1.5rem;

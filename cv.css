@@ -254,3 +254,18 @@
   .section-title { font-size: 1.4rem; }
   .section-title svg { width:18px; height:18px; }
 }
+
+/* ── Flag images ── */
+.lang-flag {
+  height: 14px; width: auto;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-right: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.intl-flag-deco img {
+  width: 46px; height: auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  display: block;
+}
