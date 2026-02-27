@@ -130,7 +130,7 @@
 
             <!-- Diseños -->
             <div class="portfolio-card disenios fade-in-up delay-2" data-category="disenios">
-                <div class="card-image">
+                <div class="card-image zoomable">
                     <img src="Imagenes/Mozaico_Página_2.png" alt="Mozaico Serendipity"> -->
                     <div class="card-image-placeholder">
                         <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
@@ -152,7 +152,7 @@
             </div>
 
             <div class="portfolio-card disenios fade-in-up delay-3" data-category="disenios">
-                <div class="card-image">
+                <div class="card-image zoomable">
                     <img src="Imagenes/Módulos_Página_4.png" alt="Supermódulo"> -->
                     <div class="card-image-placeholder">
                         <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
@@ -175,7 +175,7 @@
 
             <!-- Ilustraciones -->
             <div class="portfolio-card illustrations fade-in-up delay-4" data-category="illustrations">
-                <div class="card-image">
+                <div class="card-image zoomable">
                     <img src="Imagenes/Arte digital bailarina.jpg" alt="Bailarina Dinamismo"> -->
                     <div class="card-image-placeholder">
                         <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
@@ -198,7 +198,7 @@
             </div>
 
             <div class="portfolio-card illustrations fade-in-up delay-5" data-category="illustrations">
-                <div class="card-image">
+                <div class="card-image zoomable">
                     <img src="Imagenes/Arte digital perro volador.jpg" alt="Perro en Movimiento"> -->
                     <div class="card-image-placeholder">
                         <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
@@ -221,7 +221,7 @@
             </div>
 
             <div class="portfolio-card illustrations fade-in-up" data-category="illustrations">
-                <div class="card-image">
+                <div class="card-image zoomable">
                     <img src="Imagenes/Art Noveau.jpg" alt="Art Nouveau"> -->
                     <div class="card-image-placeholder">
                         <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
@@ -244,7 +244,7 @@
             </div>
 
             <div class="portfolio-card illustrations fade-in-up delay-1" data-category="illustrations">
-                <div class="card-image">
+                <div class="card-image zoomable">
                     <img src="Imagenes/Proyecto IPhone_Página_2.png" alt="Campaña iPhone"> -->
                     <div class="card-image-placeholder">
                         <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
@@ -278,7 +278,7 @@
             <h2>¿Te gustaría trabajar conmigo?</h2>
             <p>Estoy disponible para nuevos proyectos de diseño web y gráfico</p>
             <div class="cta-buttons">
-                <a href="mailto:pauje2000@gmail.com" class="btn btn-primary">Contactar</a>
+                <a href="/cdn-cgi/l/email-protection#700011051a154240404030171d11191c5e131f1d" class="btn btn-primary">Contactar</a>
                 <a href="cv.html" class="btn">Ver CV</a>
             </div>
         </div>
@@ -294,7 +294,7 @@
                 <p>Diseñadora Web &amp; Gráfica</p>
             </div>
             <div class="footer-contact">
-                <p><a href="mailto:pauje2000@gmail.com">pauje2000@gmail.com</a></p>
+                <p><a href="/cdn-cgi/l/email-protection#f18190849b94c3c1c1c1b1969c90989ddf929e9c"><span class="__cf_email__" data-cfemail="a3d3c2d6c9c691939393e3c4cec2cacf8dc0ccce">[email&#160;protected]</span></a></p>
                 <p><a href="tel:+50687122163">(+506) 8712-2163</a></p>
                 <p>Costa Rica</p>
             </div>
@@ -311,7 +311,7 @@
     </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   (function() {
     var toggle = document.querySelector(".menu-toggle");
     var menu   = document.querySelector(".nav-links");
@@ -356,13 +356,63 @@
     var obs = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
         if (e.isIntersecting) e.target.style.animationPlayState = "running";
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-    document.querySelectorAll(".fade-in-up,.scale-in,.slide-in-left,.slide-in-right").forEach(function(el) {
+           });
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".fade-in-up").forEach(function(el) {
       el.style.animationPlayState = "paused";
       obs.observe(el);
     });
   })();
 </script>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+</div>
+
+<script>
+(function() {
+  var overlay  = document.getElementById('lightbox');
+  var lbImg    = document.getElementById('lightboxImg');
+  var closeBtn = document.getElementById('lightboxClose');
+
+  function openLightbox(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function() { lbImg.src = ''; }, 350);
+  }
+
+  document.querySelectorAll('.card-image.zoomable').forEach(function(wrapper) {
+    var img = wrapper.querySelector('img');
+    if (!img) return;
+    wrapper.addEventListener('click', function() {
+      openLightbox(img.src, img.alt);
+    });
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+</script>
+
 </body>
 </html>
