@@ -491,13 +491,3 @@
           var m = (e.target.getAttribute('style')||'').match(/--level:\s*([^;]+)/);
           if (m) e.target.style.width = m[1].trim();
         }
-      });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.level-bar').forEach(function(bar) {
-      var m = (bar.getAttribute('style')||'').match(/--level:\s*([^;]+)/);
-      if (m) { bar.style.width = '0%'; barObs.observe(bar); }
-    });
-  })();
-</script>
-</body>
-</html>

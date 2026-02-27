@@ -364,15 +364,4 @@
     var cards = document.querySelectorAll('.portfolio-card');
     btns.forEach(function(btn) {
       btn.addEventListener('click', function() {
-        btns.forEach(function(b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        var f = btn.dataset.filter;
-        cards.forEach(function(card) {
-          card.style.display = (f === 'all' || card.dataset.category === f) ? 'flex' : 'none';
-        });
-      });
-    });
-  })();
-</script>
-</body>
-</html>
+        btns.forEach(function(b) { b.classList.remove(
