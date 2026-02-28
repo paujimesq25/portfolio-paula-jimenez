@@ -278,7 +278,7 @@
             <h2>¿Te gustaría trabajar conmigo?</h2>
             <p>Estoy disponible para nuevos proyectos de diseño web y gráfico</p>
             <div class="cta-buttons">
-                <a href="/cdn-cgi/l/email-protection#700011051a154240404030171d11191c5e131f1d" class="btn btn-primary">Contactar</a>
+                <a href="mailto:pauje2000@gmail.com" class="btn btn-primary">Contactar</a>
                 <a href="cv.html" class="btn">Ver CV</a>
             </div>
         </div>
@@ -294,7 +294,7 @@
                 <p>Diseñadora Web &amp; Gráfica</p>
             </div>
             <div class="footer-contact">
-                <p><a href="/cdn-cgi/l/email-protection#f18190849b94c3c1c1c1b1969c90989ddf929e9c"><span class="__cf_email__" data-cfemail="a3d3c2d6c9c691939393e3c4cec2cacf8dc0ccce">[email&#160;protected]</span></a></p>
+                <p><a href="mailto:pauje2000@gmail.com">pauje2000@gmail.com</a></p>
                 <p><a href="tel:+50687122163">(+506) 8712-2163</a></p>
                 <p>Costa Rica</p>
             </div>
@@ -363,6 +363,35 @@
       obs.observe(el);
     });
   })();
+</script>
+
+<!-- Filter Script -->
+<script>
+(function() {
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('.portfolio-card');
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      // Update active button
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      var filter = btn.getAttribute('data-filter');
+
+      cards.forEach(function(card) {
+        var category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.style.display = '';
+          card.classList.add('filtered');
+          setTimeout(function() { card.classList.remove('filtered'); }, 400);
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
 </script>
 
 <!-- Lightbox -->
