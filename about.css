@@ -261,3 +261,15 @@
   transition: transform .4s var(--ease-out-expo);
 }
 .language-card:hover .flag-img { transform: scale(1.06); }
+
+/* Idiomas secundarios visualmente más sutiles */
+.language-card.lang-secondary {
+  opacity: 0.75;
+  transform: scale(0.97);
+}
+.language-card.lang-secondary .language-card-image {
+  height: 90px;
+}
+.language-card.lang-secondary h3 {
+  font-size: 1.2rem;
+}
