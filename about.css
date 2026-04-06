@@ -176,6 +176,18 @@
 .value-card h3 { font-family: var(--font-display); color: var(--dark-brown); font-size: 1.4rem; margin-bottom: .5rem; }
 .value-card p  { color: var(--dark-brown); opacity: .75; font-size: 1rem; line-height: 1.7; margin: 0; }
 
+/* Card de Creatividad destacada */
+.value-card.featured-value {
+  border: 2px solid var(--terracota);
+  transform: scale(1.03);
+}
+.value-card.featured-value .value-card-image {
+  height: 160px;
+}
+.value-card.featured-value h3 {
+  font-size: 1.6rem;
+  color: var(--terracota);
+}
 /* ── Responsive ── */
 @media(max-width:1100px) {
   .languages-grid { grid-template-columns: repeat(2, 1fr); }
